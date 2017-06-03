@@ -12,7 +12,7 @@ io.on('connection', function(socket){
 		console.log(player.id + ' déconnecté !')
 		socket.broadcast.emit("rm-player", player.id);
 		players[player.id] = null;
-	}, 3000);
+	}, 5000);
 
 	console.log(player.id + ' connecté !')
 
@@ -26,7 +26,7 @@ io.on('connection', function(socket){
 			console.log(player.id + ' déconnecté !')
 			socket.broadcast.emit("rm-player", player.id);
 			delete players[player.id];
-		}, 3000);
+		}, 5000);
 	})
 });
 
@@ -43,7 +43,7 @@ function genUUID () {
     if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
         d += performance.now(); //use high-precision timer if available
     }
-    return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    return 'xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/[x]/g, function (c) {
         var r = (d + Math.random() * 16) % 16 | 0;
         d = Math.floor(d / 16);
         return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
